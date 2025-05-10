@@ -1,0 +1,81 @@
+{
+  "name": "vite-plugin-mdi-fontmin",
+  "version": "1.1.2",
+  "license": "MIT",
+  "author": "re7r <re7r@proton.me>",
+  "description": "Vite plugin for subsetting Material Design Icons (MDI) font files",
+  "repository": "https://github.com/re7r/vite-plugin-mdi-fontmin",
+  "main": "dist/index.min.js",
+  "module": "dist/index.min.js",
+  "types": "types/index.d.ts",
+  "exports": {
+    "require": "./dist/index.min.js",
+    "import": "./dist/index.min.js",
+    "types": "./types/index.d.ts"
+  },
+  "scripts": {
+    "build": "rollup -c --configPlugin @rollup/plugin-typescript",
+    "ci:test": "yarn test --verbose && yarn test:ts",
+    "ci:coverage": "nyc yarn test && nyc report --reporter=text-lcov > coverage.lcov",
+    "ci:release": "release-it",
+    "prebuild": "del-cli dist",
+    "prepare": "if [ ! -d 'dist' ]; then yarn build; fi",
+    "prerelease": "yarn build",
+    "pretest": "yarn build",
+    "test": "ava",
+    "test:ts": "tsc --project test/tsconfig.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=14.16.1"
+  },
+  "peerDependencies": {
+    "@mdi/font": "^1.0.0||^2.0.0||^3.0.0||^4.0.0||^5.0.0||^6.0.0||^7.0.0",
+    "fontmin": "^1.0.0||^2.0.0",
+    "vite": "^1.0.0||^2.0.0||^3.0.0||^4.0.0||^5.0.0||^6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "vite": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@mdi/font": "^7.4.47",
+    "@release-it/bumper": "^7.0.5",
+    "@release-it/conventional-changelog": "^10.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/node": "^22.15.14",
+    "ava": "^6.3.0",
+    "fontmin": "^2.0.0",
+    "release-it": "^19.0.2",
+    "rollup": "^4.40.2",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  },
+  "files": [
+    "dist/index.min.js",
+    "types/index.d.ts",
+    "package.json"
+  ],
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "material-design-icons",
+    "mdi",
+    "fontmin",
+    "minify",
+    "font",
+    "icons"
+  ],
+  "dependencies": {
+    "rollup-plugin-mdi-fontmin": "=1.1.2"
+  },
+  "resolutions": {
+    "rollup-plugin-mdi-fontmin": "=1.1.2"
+  }
+}
