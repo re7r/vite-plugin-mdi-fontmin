@@ -68,7 +68,6 @@
     "fontmin": "^2.0.0",
     "prettier": "^3.5.3",
     "release-it": "^19.0.2",
-    "rollup-plugin-mdi-fontmin": "^1.2.1",
     "tsdown": "^0.12.3",
     "vite": "^6.3.5",
     "vitest": "^3.1.4"
@@ -77,6 +76,9 @@
     "node": ">=v18"
   },
   "resolutions": {
-    "rollup-plugin-mdi-fontmin": "=1.2.1"
+    "rollup-plugin-mdi-fontmin": "=1.2.2"
+  },
+  "dependencies": {
+    "rollup-plugin-mdi-fontmin": "^1.2.2"
   }
 }
