@@ -10,6 +10,8 @@
 
 🍕 A Vite plugin to subset Material Design Icons (MDI) font files.
 
+This plugin is a [`rollup-plugin-mdi-fontmin`](https://www.npmjs.com/package/rollup-plugin-mdi-fontmin) wrapper.
+
 ## Requirements
 
 This plugin requires Node.js v14.16.1+ ([LTS](https://github.com/nodejs/Release) recommended).
@@ -20,7 +22,7 @@ This plugin requires Node.js v14.16.1+ ([LTS](https://github.com/nodejs/Release)
 npm install vite-plugin-mdi-fontmin @mdi/font fontmin --save-dev
 ```
 
-If you want to use fontmin `1.x.x version`
+If you want to use f ontmin `1.x.x version`
 
 ```sh
 npm install vite-plugin-mdi-fontmin @mdi/font fontmin@1 --save-dev
@@ -30,7 +32,7 @@ npm install vite-plugin-mdi-fontmin @mdi/font fontmin@1 --save-dev
 
 ```js
 // vite.config.js
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 import mdiFontmin from 'vite-plugin-mdi-fontmin';
 
 // @see https://vitejs.dev/config/
@@ -41,20 +43,28 @@ export default defineConfig({
       names: ['home', 'account', 'settings'], // List of icons to include (required)
     }),
   ],
-})
+});
 ```
 
 Full configuration example:
 
 ```js
-plugins: [
-  mdiFontmin({
-    names: ['home', 'account', 'settings'], // List of icons to include (required)
-    output: 'public/fonts/mdi',             // Output directory
-    silent: false,                          // Whether to suppress console output
-    logPrefix: '[mdi]',                     // Custom log prefix
-  }),
-],
+// vite.config.js
+import { defineConfig } from 'vite';
+import mdiFontmin from 'vite-plugin-mdi-fontmin';
+
+// @see https://vitejs.dev/config/
+export default defineConfig({
+  // ...
+  plugins: [
+    mdiFontmin({
+      names: ['home', 'account', 'settings'], // List of icons to include (required)
+      output: 'public/fonts/mdi', // Output directory
+      silent: false, // Whether to suppress console output
+      logPrefix: '[mdi]', // Custom log prefix
+    }),
+  ],
+});
 ```
 
 ## Options
@@ -65,7 +75,7 @@ Type: `Array<string>`
 **Required**: Yes
 
 A list of Material Design Icons (MDI) names to include in the subset.
-These correspond to *css* class names without the `mdi-` prefix.
+These correspond to _css_ class names without the `mdi-` prefix.
 
 ### `output`
 
@@ -84,13 +94,14 @@ Whether to suppress console output.
 ### `logPrefix`
 
 Type: `string`
-Default: `'[vite-plugin-mdi-fontmin]'`
+Default: `'[mdi-fontmin]'`
 
 Prefix for console output.
 
 ## How it works
 
-The plugin will check if the font files already exist in the output directory. If they do, it will skip the generation step. Otherwise, it will:
+The plugin will check if the font files already exist in the output directory. If they do, it will skip the generation step. Otherwise, it
+will:
 
 1. Read the Material Design Icons CSS file.
 2. Parse and extract the glyphs corresponding to the specified icon names.

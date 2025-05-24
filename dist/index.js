@@ -1,16 +1,1 @@
-'use strict';
-
-var mdiFontminRollupPlugin = require('rollup-plugin-mdi-fontmin');
-
-function mdiFontmin(options) {
-    return {
-        ...mdiFontminRollupPlugin({
-            ...options ?? {},
-            logPrefix: '[vite-plugin-mdi-fontmin]',
-        }),
-        name: 'vite-plugin-mdi-fontmin',
-    };
-}
-
-module.exports = mdiFontmin;
-//# sourceMappingURL=index.js.map
+function e(e,t=[]){let n,r=/\.mdi-([a-z0-9-]+):{1,2}before\{content:"\\([A-Fa-f0-9]+)"/g,i=[];for(;n=r.exec(e);)t.includes(n[1])&&i.push({name:n[1],code:n[2]});return i}function t(e,t=[]){let n=e.replaceAll(/\.mdi-([a-z0-9-]+):{1,2}before\{content:"\\[A-Fa-f0-9]+"\}/g,(e,n)=>t.includes(n)?e:``);return`${n.replaceAll(`../fonts/`,`./`).replace(/\/\*# sourceMappingURL=.*? \*\//,``).replaceAll(/\n+/g,``)}\n`}function n(e){return e.map(e=>String.fromCodePoint(Number.parseInt(e.code,16))).join()}function r(r){return{name:`mdi-fontmin`,async buildStart(){r=Object.assign({names:[],output:`public/fonts/mdi`,silent:!1,logPrefix:`[mdi-fontmin]`},r??{});let i=`materialdesignicons`,a=(await import(`node:fs`)).default,o=(await import(`node:path`)).default,s=(await import(`fontmin`)).default,c=r.logPrefix?` ${r.logPrefix}`:``,l=o.resolve(`node_modules/@mdi/font/fonts/${i}-webfont.ttf`),u=o.resolve(`node_modules/@mdi/font/css/${i}.min.css`),d=o.normalize(r.output.replace(/^\/+/,``)),f=o.resolve(d);try{if(!a.existsSync(l))throw Error(`font file ${l} does not exist,\ncheck if the @mdi/font package is properly installed.`);if(!a.existsSync(u))throw Error(`css file ${l} does not exist,\ncheck if the @mdi/font package is properly installed.`);if(a.existsSync(o.join(f,`${i}.min.css`))&&a.existsSync(o.join(f,`${i}-webfont.ttf`))&&a.existsSync(o.join(f,`${i}-webfont.eot`))&&a.existsSync(o.join(f,`${i}-webfont.woff`))&&a.existsSync(o.join(f,`${i}-webfont.woff2`))){r.silent||console.info(`✅${c} Font files already exist, skipping generation.`);return}r.silent||console.info(`✅${c} Starting Subset mdi fonts generation...`),a.existsSync(f)||a.mkdirSync(f,{recursive:!0});let p=a.readFileSync(u,`utf8`),m=e(p,r.names),h=n(m);await new s().src(l).dest(f).use(s.glyph({text:h,hinting:!0})).use(s.ttf2eot()).use(s.ttf2woff()).use(s.ttf2woff2()).runAsync();try{let e=t(p,r.names);a.writeFileSync(o.join(f,`${i}.min.css`),e),r.silent||console.info(`✅${c} Subset mdi fonts generated at ${d}`)}catch(e){console.error(`❌${c} Subset mdi .css generation failed:`,e)}}catch(e){console.error(`❌${c} Subset mdi fonts generation failed:`,e)}}}}function i(e){return r(e)}export{i as default};
