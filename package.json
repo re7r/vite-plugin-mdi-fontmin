@@ -75,9 +75,9 @@
     "node": ">=v18"
   },
   "resolutions": {
-    "rollup-plugin-mdi-fontmin": "=1.2.3"
+    "rollup-plugin-mdi-fontmin": "=1.2.4"
   },
   "dependencies": {
-    "rollup-plugin-mdi-fontmin": "^1.2.3"
+    "rollup-plugin-mdi-fontmin": "^1.2.4"
   }
 }

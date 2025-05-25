@@ -12,8 +12,8 @@ importers:
   .:
     dependencies:
       rollup-plugin-mdi-fontmin:
-        specifier: ^1.2.3
-        version: 1.2.3(@mdi/font@7.4.47)(fontmin@2.0.0)(rollup@4.41.1)
+        specifier: ^1.2.4
+        version: 1.2.4(@mdi/font@7.4.47)(fontmin@2.0.0)(rollup@4.41.1)
     devDependencies:
       '@mdi/font':
         specifier: ^7.4.47
@@ -1591,6 +1591,10 @@ packages:
   eslint-flat-config-utils@2.1.0:
     resolution: {integrity: sha512-6fjOJ9tS0k28ketkUcQ+kKptB4dBZY2VijMZ9rGn8Cwnn1SH0cZBoPXT8AHBFHxmHcLFQK9zbELDinZ2Mr1rng==}
 
+  eslint-import-context@0.1.3:
+    resolution: {integrity: sha512-dmdfEU9i8EgxV7jR9IAeiC6mp22wNfclhs33D8zctPYiclQhq61idm/Q4VJv00SPvqLWTokvN5lDyNkuQZYzUg==}
+    engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+
   eslint-import-resolver-node@0.3.9:
     resolution: {integrity: sha512-WFj2isz22JahUv+B788TlO3N6zL3nNJGU8CcZbPZvVEkBPaJdCV4vy5wyghty5ROFbCRnm132v8BScu5/1BQ8g==}
 
@@ -1627,8 +1631,8 @@ packages:
     peerDependencies:
       eslint: '>=8'
 
-  eslint-plugin-import-x@4.12.2:
-    resolution: {integrity: sha512-0jVUgJQipbs0yUfLe7LwYD6p8rIGqCysWZdyJFgkPzDyJgiKpuCaXlywKUAWgJ6u1nLpfrdt21B60OUkupyBrQ==}
+  eslint-plugin-import-x@4.13.0:
+    resolution: {integrity: sha512-YtbaFHEQYGvR9zPuI525UhwPKEK0sXAvPyHKBUZYadJeIhD6UIuQE60Fje4q5nP17fkhzxjECrFV20nSdLrQtg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
@@ -2884,8 +2888,8 @@ packages:
     resolution: {integrity: sha512-FHkj6gGEiEgmAXQchglofvUUdwj2Oiw603Rs+zgFAnn9Cb7T7z3fiaEc0DbN3ja4wYkW6sF2rzMEtC1V4BGx/g==}
     hasBin: true
 
-  rollup-plugin-mdi-fontmin@1.2.3:
-    resolution: {integrity: sha512-BcSjyK3u6S90qB+inbFdOar526nEoTa4kzT0vZM2Fm0Rbw1H0Mw8ZsuEtCdFo6xCFBHeB6XoVyezir51urYn5A==}
+  rollup-plugin-mdi-fontmin@1.2.4:
+    resolution: {integrity: sha512-xX1EJ4Un9UOf4+sl+7I3ry3hmU7r+VQpSUawBzOdYBZqs+dN5zrIqLzfmF9w6+2G3TGcckiPHliZ44ekDIHmsg==}
     engines: {node: '>=v18'}
     peerDependencies:
       '@mdi/font': ^1.0.0||^2.0.0||^3.0.0||^4.0.0||^5.0.0||^6.0.0||^7.0.0
@@ -4091,7 +4095,7 @@ snapshots:
       eslint-plugin-antfu: 3.1.1(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-command: 3.2.1(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-de-morgan: 1.2.1(eslint@9.27.0(jiti@2.4.2))
-      eslint-plugin-import-x: 4.12.2(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3)
+      eslint-plugin-import-x: 4.13.0(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3)
       eslint-plugin-jsdoc: 50.6.17(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-jsonc: 2.20.1(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-n: 17.18.0(eslint@9.27.0(jiti@2.4.2))
@@ -4904,6 +4908,8 @@ snapshots:
     dependencies:
       pathe: 2.0.3
 
+  eslint-import-context@0.1.3: {}
+
   eslint-import-resolver-node@0.3.9:
     dependencies:
       debug: 3.2.7
@@ -4938,14 +4944,14 @@ snapshots:
       eslint: 9.27.0(jiti@2.4.2)
       eslint-compat-utils: 0.5.1(eslint@9.27.0(jiti@2.4.2))
 
-  eslint-plugin-import-x@4.12.2(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3):
+  eslint-plugin-import-x@4.13.0(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3):
     dependencies:
       '@typescript-eslint/utils': 8.32.1(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3)
       comment-parser: 1.4.1
       debug: 4.4.1
       eslint: 9.27.0(jiti@2.4.2)
+      eslint-import-context: 0.1.3
       eslint-import-resolver-node: 0.3.9
-      get-tsconfig: 4.10.1
       is-glob: 4.0.3
       minimatch: 10.0.1
       semver: 7.7.2
@@ -6519,7 +6525,7 @@ snapshots:
       '@rolldown/binding-win32-ia32-msvc': 1.0.0-beta.9-commit.d91dfb5
       '@rolldown/binding-win32-x64-msvc': 1.0.0-beta.9-commit.d91dfb5
 
-  rollup-plugin-mdi-fontmin@1.2.3(@mdi/font@7.4.47)(fontmin@2.0.0)(rollup@4.41.1):
+  rollup-plugin-mdi-fontmin@1.2.4(@mdi/font@7.4.47)(fontmin@2.0.0)(rollup@4.41.1):
     dependencies:
       '@mdi/font': 7.4.47
       fontmin: 2.0.0
